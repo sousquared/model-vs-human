@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # 2. plot the evaluation results
     run_plotting()
     t3 = time.time()
-    elapsed_time_plot = t3 - t1
+    elapsed_time_plot = t3 - t2
 
     print(f"elapsed time: {elapsed_time_eval}")
     print(f"elapsed time: {elapsed_time_plot}")
