@@ -27,9 +27,9 @@ def plotting_definition_template(df):
 
     decision_makers = []
 
-    decision_makers.append(DecisionMaker(name_pattern="alexnet",
-                           color=rgb(65, 90, 140), marker="o", df=df,
-                           plotting_name="AlexNetNet"))
+    # decision_makers.append(DecisionMaker(name_pattern="alexnet",
+    #                        color=rgb(65, 90, 140), marker="o", df=df,
+    #                        plotting_name="AlexNetNet"))
     # decision_makers.append(DecisionMaker(name_pattern="resnet50",
     #                        color=rgb(65, 90, 140), marker="o", df=df,
     #                        plotting_name="ResNet-50"))
