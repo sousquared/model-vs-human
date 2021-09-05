@@ -2,6 +2,18 @@ from modelvshuman import Plot, Evaluate
 from modelvshuman import constants as c
 from plotting_definition import plotting_definition_template
 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "--evaluate", "-e",
+    action="store_true",
+    default=False,
+)
+parser.add_argument(
+    "--plot", "-p",
+    action="store_true",
+    default=False,
+)
 
 def run_evaluation():
     # models = ["resnet50", "bagnet33", "simclr_resnet50x1"]
@@ -24,18 +36,21 @@ def run_plotting():
 
 if __name__ == "__main__":
     import time
-    t1 = time.time()
 
-    # 1. evaluate models on out-of-distribution datasets
-    run_evaluation()
-    t2 = time.time()
-    elapsed_time_eval = t2 - t1
-    print(f"elapsed time: {elapsed_time_eval}")
+    args = parser.parse_args()
 
-    # 2. plot the evaluation results
-    run_plotting()
-    t3 = time.time()
-    elapsed_time_plot = t3 - t2
+    if args.evaluate:
+        # 1. evaluate models on out-of-distribution datasets
+        t1 = time.time()
+        run_evaluation()
+        t2 = time.time()
+        elapsed_time_eval = t2 - t1
+        print(f"elapsed time: {elapsed_time_eval}")
 
-    print(f"elapsed time: {elapsed_time_eval}")
-    print(f"elapsed time: {elapsed_time_plot}")
+    if args.plot:
+        # 2. plot the evaluation results
+        t3 = time.time()
+        run_plotting()
+        t4 = time.time()
+        elapsed_time_plot = t4 - t3
+        print(f"elapsed time: {elapsed_time_plot}")
