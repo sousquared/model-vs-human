@@ -584,3 +584,61 @@ def resnet50_clip_soft_labels(model_name, *args):
                                                     "/ResNet50_clip_soft_labels.pth", map_location='cpu')
     model.load_state_dict(checkpoint["state_dict"])
     return PyTorchModel(model, model_name, *args)
+
+# blur-training
+import blur_training.load
+
+model_dir = {
+    1000: "/mnt/data1/pretrained_models/blur-training/imagenet1000/models/",
+    16: "/mnt/data1/pretrained_models/blur-training/imagenet16/models/"
+}
+num_classes = 1000
+epoch = 60
+
+
+@register_model("pytorch")
+def alexnet_s(model_name, *args):
+    bt_name = "alexnet_normal"
+    model = blur_training.load.load_model(
+        arch="alexnet",
+        num_classes=num_classes,
+        model_path=model_dir[num_classes] + f"{bt_name}/epoch_{epoch}.pth.tar",
+        device="cuda:0" if torch.cuda.is_available() else "cpu",
+    )
+    return PyTorchModel(model, model_name, *args)
+
+
+@register_model("pytorch")
+def alexnet_b(model_name, *args):
+    bt_name = "alexnet_all_s04"
+    model = blur_training.load.load_model(
+        arch="alexnet",
+        num_classes=num_classes,
+        model_path=model_dir[num_classes] + f"{bt_name}/epoch_{epoch}.pth.tar",
+        device="cuda:0" if torch.cuda.is_available() else "cpu",
+    )
+    return PyTorchModel(model, model_name, *args)
+
+
+@register_model("pytorch")
+def alexnet_bs(model_name, *args):
+    bt_name = "alexnet_mix_s04"
+    model = blur_training.load.load_model(
+        arch="alexnet",
+        num_classes=num_classes,
+        model_path=model_dir[num_classes] + f"{bt_name}/epoch_{epoch}.pth.tar",
+        device="cuda:0" if torch.cuda.is_available() else "cpu",
+    )
+    return PyTorchModel(model, model_name, *args)
+
+
+@register_model("pytorch")
+def alexnet_b2s(model_name, *args):
+    bt_name = "alexnet_multi-steps"
+    model = blur_training.load.load_model(
+        arch="alexnet",
+        num_classes=num_classes,
+        model_path=model_dir[num_classes] + f"{bt_name}/epoch_{epoch}.pth.tar",
+        device="cuda:0" if torch.cuda.is_available() else "cpu",
+    )
+    return PyTorchModel(model, model_name, *args)
