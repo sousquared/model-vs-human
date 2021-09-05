@@ -39,6 +39,21 @@ def plotting_definition_template(df):
     decision_makers.append(DecisionMaker(name_pattern="subject-*",
                            color=rgb(165, 30, 55), marker="D", df=df,
                            plotting_name="humans"))
+
+    ## blur-training
+    decision_makers.append(DecisionMaker(name_pattern="alexnet_s",
+                           color=rgb(31, 119, 180), df=df,
+                           plotting_name="S-AlexNet"))
+    decision_makers.append(DecisionMaker(name_pattern="alexnet_b",
+                           color=rgb(0, 100, 0), df=df,
+                           plotting_name="B-AlexNet (σ=4)"))
+    decision_makers.append(DecisionMaker(name_pattern="alexnet_bs",
+                           color=rgb(255, 140, 0), df=df,
+                           plotting_name="B+S-AlexNet (σ=4)"))
+    decision_makers.append(DecisionMaker(name_pattern="alexnet_b2s",
+                           color=rgb(199, 21, 133), df=df,
+                           plotting_name="B2S-AlexNet"))
+    
     return decision_makers
 
 
@@ -54,19 +69,6 @@ def get_comparison_decision_makers(df, include_humans=True,
                                color=rgb(230, 230, 230), df=df,
                                plotting_name=model))
 
-    ## blur-training
-    d.append(DecisionMaker(name_pattern="alexnet_s",
-                           color=rgb(31, 119, 180), df=df,
-                           plotting_name="S-AlexNet"))
-    d.append(DecisionMaker(name_pattern="alexnet_b",
-                           color=rgb(0, 100, 0), df=df,
-                           plotting_name="B-AlexNet (σ=4)"))
-    d.append(DecisionMaker(name_pattern="alexnet_bs",
-                           color=rgb(255, 140, 0), df=df,
-                           plotting_name="B+S-AlexNet (σ=4)"))
-    d.append(DecisionMaker(name_pattern="alexnet_b2s",
-                           color=rgb(199, 21, 133), df=df,
-                           plotting_name="B2S-AlexNet"))
 
     # 2. self-supervised models
     for model in c.PYCONTRAST_MODELS:
