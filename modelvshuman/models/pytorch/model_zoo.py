@@ -642,3 +642,16 @@ def alexnet_b2s(model_name, *args):
         device="cuda:0" if torch.cuda.is_available() else "cpu",
     )
     return PyTorchModel(model, model_name, *args)
+
+
+@register_model("pytorch")
+def alexnet16_s(model_name, *args):
+    num_classes = 16
+    bt_name = "alexnet_normal"
+    model = blur_training.load_model(
+        arch="alexnet",
+        num_classes=num_classes,
+        model_path=model_dir[num_classes] + f"{bt_name}/epoch_{epoch}.pth.tar",
+        device="cuda:0" if torch.cuda.is_available() else "cpu",
+    )
+    return PyTorchModel(model, model_name, *args)
