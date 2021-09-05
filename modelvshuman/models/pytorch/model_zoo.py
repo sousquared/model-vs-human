@@ -586,7 +586,7 @@ def resnet50_clip_soft_labels(model_name, *args):
     return PyTorchModel(model, model_name, *args)
 
 # blur-training
-import .blur_training.load
+from ..pytorch import blur_training
 
 model_dir = {
     1000: "/mnt/data1/pretrained_models/blur-training/imagenet1000/models/",
