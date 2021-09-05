@@ -42,16 +42,16 @@ def plotting_definition_template(df):
 
     ## blur-training
     decision_makers.append(DecisionMaker(name_pattern="alexnet_s",
-                           color=rgb(31, 119, 180), df=df,
+                           color=rgb(31, 119, 180), marker="o", df=df,
                            plotting_name="S-AlexNet"))
     decision_makers.append(DecisionMaker(name_pattern="alexnet_b",
-                           color=rgb(0, 100, 0), df=df,
+                           color=rgb(0, 100, 0), marker="o", df=df,
                            plotting_name="B-AlexNet (σ=4)"))
     decision_makers.append(DecisionMaker(name_pattern="alexnet_bs",
-                           color=rgb(255, 140, 0), df=df,
+                           color=rgb(255, 140, 0), marker="o", df=df,
                            plotting_name="B+S-AlexNet (σ=4)"))
     decision_makers.append(DecisionMaker(name_pattern="alexnet_b2s",
-                           color=rgb(199, 21, 133), df=df,
+                           color=rgb(199, 21, 133), marker="o", df=df,
                            plotting_name="B2S-AlexNet"))
     
     return decision_makers
