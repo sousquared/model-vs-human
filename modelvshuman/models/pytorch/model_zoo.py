@@ -599,7 +599,7 @@ epoch = 60
 @register_model("pytorch")
 def alexnet_s(model_name, *args):
     bt_name = "alexnet_normal"
-    model = blur_training.load.load_model(
+    model = blur_training.load_model(
         arch="alexnet",
         num_classes=num_classes,
         model_path=model_dir[num_classes] + f"{bt_name}/epoch_{epoch}.pth.tar",
@@ -611,7 +611,7 @@ def alexnet_s(model_name, *args):
 @register_model("pytorch")
 def alexnet_b(model_name, *args):
     bt_name = "alexnet_all_s04"
-    model = blur_training.load.load_model(
+    model = blur_training.load_model(
         arch="alexnet",
         num_classes=num_classes,
         model_path=model_dir[num_classes] + f"{bt_name}/epoch_{epoch}.pth.tar",
@@ -623,7 +623,7 @@ def alexnet_b(model_name, *args):
 @register_model("pytorch")
 def alexnet_bs(model_name, *args):
     bt_name = "alexnet_mix_s04"
-    model = blur_training.load.load_model(
+    model = blur_training.load_model(
         arch="alexnet",
         num_classes=num_classes,
         model_path=model_dir[num_classes] + f"{bt_name}/epoch_{epoch}.pth.tar",
@@ -635,7 +635,7 @@ def alexnet_bs(model_name, *args):
 @register_model("pytorch")
 def alexnet_b2s(model_name, *args):
     bt_name = "alexnet_multi-steps"
-    model = blur_training.load.load_model(
+    model = blur_training.load_model(
         arch="alexnet",
         num_classes=num_classes,
         model_path=model_dir[num_classes] + f"{bt_name}/epoch_{epoch}.pth.tar",
