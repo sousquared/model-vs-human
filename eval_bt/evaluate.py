@@ -23,7 +23,19 @@ def run_plotting():
 
 
 if __name__ == "__main__":
+    import time
+    t1 = time.time()
+
     # 1. evaluate models on out-of-distribution datasets
     run_evaluation()
+    t2 = time.time()
+    elapsed_time_eval = t2 - t1
+    print(f"elapsed time: {elapsed_time_eval}")
+
     # 2. plot the evaluation results
     run_plotting()
+    t3 = time.time()
+    elapsed_time_plot = t3 - t1
+
+    print(f"elapsed time: {elapsed_time_eval}")
+    print(f"elapsed time: {elapsed_time_plot}")
