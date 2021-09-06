@@ -39,9 +39,6 @@ def plotting_definition_template(df):
     # decision_makers.append(DecisionMaker(name_pattern="simclr_resnet50x1",
     #                        color=rgb(210, 150, 0), marker="o", df=df,
     #                        plotting_name="SimCLR-x1"))
-    decision_makers.append(DecisionMaker(name_pattern="subject-*",
-                           color=rgb(165, 30, 55), marker="D", df=df,
-                           plotting_name="humans"))
 
     ## blur-training
     decision_makers.append(DecisionMaker(name_pattern="alexnet_s",
@@ -56,7 +53,11 @@ def plotting_definition_template(df):
     decision_makers.append(DecisionMaker(name_pattern="alexnet_b2s",
                            color=rgb(199, 21, 133), marker="o", df=df,
                            plotting_name="B2S-AlexNet1000"))
-    
+
+    decision_makers.append(DecisionMaker(name_pattern="subject-*",
+                                         color=rgb(165, 30, 55), marker="D", df=df,
+                                         plotting_name="humans"))
+
     return decision_makers
 
 
