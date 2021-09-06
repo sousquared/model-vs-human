@@ -10,8 +10,15 @@ def run_evaluation():
     Evaluate()(models, datasets, **params)
 
 
-def run_plotting():
-    plot_types = c.DEFAULT_PLOT_TYPES # or e.g. ["accuracy", "shape-bias"]
+def run_plotting(plot_type="all"):
+    if plot_type == "all":
+        plot_types = c.DEFAULT_PLOT_TYPES
+        # = ["accuracy", "error-consistency-lineplot", "shape-bias",
+        #    "error-consistency", "benchmark-barplot", "scatterplot"]
+    else:
+        plot_types = [plot_type]
+    print("plot types: ", plot_types)
+
     plotting_def = plotting_definition_template
     figure_dirname = "example-figures/"
     Plot(plot_types = plot_types, plotting_definition = plotting_def,
@@ -22,7 +29,42 @@ def run_plotting():
 
 
 if __name__ == "__main__":
-    # 1. evaluate models on out-of-distribution datasets
-    run_evaluation()
-    # 2. plot the evaluation results
-    run_plotting()
+    import time
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--evaluate", "-e",
+        action="store_true",
+        default=False,
+    )
+    parser.add_argument(
+        "--plot", "-p",
+        action="store_true",
+        default=False,
+    )
+    parser.add_argument(
+        "--plot-type", "-t",
+        default="all",
+        type=str,
+        choices=["all", "accuracy", "error-consistency-lineplot", "shape-bias",
+                 "error-consistency", "benchmark-barplot", "scatterplot"]
+    )
+
+    args = parser.parse_args()
+
+    if args.evaluate:
+        # 1. evaluate models on out-of-distribution datasets
+        t1 = time.time()
+        run_evaluation()
+        t2 = time.time()
+        elapsed_time_eval = t2 - t1
+        print(f"elapsed time: {elapsed_time_eval}")
+
+    if args.plot:
+        # 2. plot the evaluation results
+        t3 = time.time()
+        run_plotting(plot_type=args.plot_type)
+        t4 = time.time()
+        elapsed_time_plot = t4 - t3
+        print(f"elapsed time: {elapsed_time_plot}")
