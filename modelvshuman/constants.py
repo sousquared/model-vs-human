@@ -14,7 +14,7 @@ DATASET_DIR = pjoin(PROJ_DIR, "datasets")
 FIGURE_DIR = pjoin(PROJ_DIR, "figures")
 RAW_DATA_DIR = pjoin(PROJ_DIR, "raw-data")
 PERFORMANCES_DIR = pjoin(RAW_DATA_DIR, "performances")
-REPORT_DIR = pjoin(PROJ_DIR, "latex-report/")
+REPORT_DIR = pjoin(PROJ_DIR, "latex-report_bt/")
 ASSETS_DIR = pjoin(PROJ_DIR, "assets/")
 ICONS_DIR = pjoin(ASSETS_DIR, "icons/")
 
