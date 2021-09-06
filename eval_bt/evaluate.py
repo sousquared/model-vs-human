@@ -18,7 +18,7 @@ def run_plotting(plot_type="all"):
         # = ["accuracy", "error-consistency-lineplot", "shape-bias",
         #    "error-consistency", "benchmark-barplot", "scatterplot"]
     else:
-        plot_types = plot_type
+        plot_types = [plot_type]
 
     plotting_def = plotting_definition_template
     figure_dirname = "bt-figures/"
