@@ -85,7 +85,11 @@ def plot(plot_types,
 
     crop_dirs = [result_dir]
 
+    print(plot_types)  # debug
+
     for plot_type in plot_types:
+        print(plot_type)  # debug
+
         if dataset_names is None:
             current_dataset_names = get_dataset_names(plot_type)
         else:
