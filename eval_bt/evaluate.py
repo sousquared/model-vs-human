@@ -48,7 +48,7 @@ if __name__ == "__main__":
         "--plot-type", "-t",
         default="all",
         type=str,
-        choices=["accuracy", "error-consistency-lineplot", "shape-bias",
+        choices=["all", "accuracy", "error-consistency-lineplot", "shape-bias",
                  "error-consistency", "benchmark-barplot", "scatterplot"]
     )
 
