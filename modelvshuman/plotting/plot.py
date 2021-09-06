@@ -84,7 +84,7 @@ def plot(plot_types,
         os.makedirs(result_dir)
 
     crop_dirs = [result_dir]
-    plot_types = ['benchmark-barplot', 'scatterplot']  # debug
+    plot_types = ['scatterplot']  # debug
 
     for plot_type in plot_types:
         if dataset_names is None:
