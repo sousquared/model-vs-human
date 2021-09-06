@@ -19,6 +19,7 @@ def run_plotting(plot_type="all"):
         #    "error-consistency", "benchmark-barplot", "scatterplot"]
     else:
         plot_types = [plot_type]
+    print(plot_types)  # debug
 
     plotting_def = plotting_definition_template
     figure_dirname = "bt-figures/"
